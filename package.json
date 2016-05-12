@@ -1,0 +1,34 @@
+{
+  "name": "http-headers-validation",
+  "version": "0.0.1",
+  "description": "Utility for validating HTTP header names and values",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "4.12.0"
+  },
+  "devDependencies": {
+    "mocha": "2.4.5",
+    "eslint": "2.9.0",
+    "expect": "1.20.1"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint index.js",
+    "test": "./node_modules/.bin/mocha test.js --check-leaks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SVasilev/http-headers-validation.git"
+  },
+  "keywords": [
+    "http",
+    "headers",
+    "header",
+    "validation"
+  ],
+  "author": "Stefan Vasilev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SVasilev/http-headers-validation/issues"
+  },
+  "homepage": "https://github.com/SVasilev/http-headers-validation#readme"
+}
