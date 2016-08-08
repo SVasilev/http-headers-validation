@@ -33,7 +33,7 @@ describe('headers validation module', function() {
     });
   });
 
-  describe('validates header values', function() {
+  describe('validates HTTP header values', function() {
     it('should validate common values', function() {
       httpHeadersValidation.validateHeaderValue('public, max-age=2000').should.be.equal(true);
       httpHeadersValidation.validateHeaderValue('Secure').should.be.equal(true);
@@ -42,11 +42,30 @@ describe('headers validation module', function() {
     });
 
     it('should validate more obscure values', function() {
-
+      httpHeadersValidation.validateHeaderValue('valueWithTabulation\t').should.be.equal(true);
+      httpHeadersValidation.validateHeaderValue('-05:00').should.be.equal(true);
+      httpHeadersValidation.validateHeaderValue('VQcFUFFRCBABUFhaAwQOVw==').should.be.equal(true);
+      httpHeadersValidation.validateHeaderValue('okhttp/2.5.0').should.be.equal(true);
     });
 
     it('should return false for invalid header values', function() {
+      httpHeadersValidation.validateHeaderValue('').should.be.equal(false);
+      httpHeadersValidation.validateHeaderValue('\n\b').should.be.equal(false); // If charCode < 32
+      httpHeadersValidation.validateHeaderValue('⌂').should.be.equal(false); // If charCode === 127
+      httpHeadersValidation.validateHeaderValue('withˆ').should.be.equal(false); // If charCode > 255
+    });
+  });
 
+  describe('validates HTTP header key-value pairs', function() {
+    it('should return true for valid header key-value pairs', function() {
+      httpHeadersValidation.validateHeader('My-Custom-Header-05^_`|~!#$%&\'*+-.', 'valueWithTabulation\t').should.be.equal(true);
+    });
+
+    it('should return false for invalid key-value pairs', function() {
+      httpHeadersValidation.validateHeader({}, 'application/json').should.be.equal(false);
+      httpHeadersValidation.validateHeader('Cookie', '').should.be.equal(false);
+      httpHeadersValidation.validateHeader('My-Invalid-Header-;', 'valueWithTabulation\t').should.be.equal(false);
+      httpHeadersValidation.validateHeader('Cache-Control', 'withˆ').should.be.equal(false);
     });
   });
 });
