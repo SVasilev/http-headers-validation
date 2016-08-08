@@ -2,10 +2,20 @@
 
 'use strict';
 
-var _ = require('lodash');
+function isString(value) {
+  return Object.prototype.toString.call(value) === '[object String]';
+}
+
+function range(start, end) {
+  var rangeResult = [];
+  for (var i = start; i < end; i++) {
+    rangeResult.push(i);
+  }
+  return rangeResult;
+}
 
 function invalidTypeOrLength(value) {
-  return !_.isString(value) || value.length === 0;
+  return !isString(value) || value.length === 0;
 }
 
 // Inspired by Node.js: https://github.com/nodejs/node/blob/master/lib/_http_outgoing.js
@@ -16,9 +26,9 @@ var httpHeaderValidationAPI = {
     }
 
     var validCharCodes = []
-      .concat(_.range(48, 58))  // 0-9
-      .concat(_.range(65, 91))  // a-z
-      .concat(_.range(97, 123)) // A-Z
+      .concat(range(48, 58))  // 0-9
+      .concat(range(65, 91))  // a-z
+      .concat(range(97, 123)) // A-Z
       .concat([94, 95, 96, 124, 126]) // ^, _, `, |, ~
       .concat([33, 35, 36, 37, 38, 39, 42, 43, 45, 46]); // !, #, $, %, &, ', *, +, -, .,
 
