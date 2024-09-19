@@ -70,6 +70,15 @@ $ npm install
 $ npm test
 ```
 
+Build TypeScript declaration run next command:
+```
+npm run build:types
+```
+
+To remove TypeScript declaration
+```
+npm run clean:types
+```
 ## License
 
 [MIT](LICENSE)
