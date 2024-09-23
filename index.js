@@ -1,10 +1,10 @@
 /* global window */
 
-'use strict';
+'use strict'; // eslint-disable-line strict
 
 /**
  * Checks if the given value is a string.
- * 
+ *
  * @param {*} value - The value to check.
  * @returns {boolean} `true` if the value is a string, otherwise `false`.
  */
@@ -14,7 +14,7 @@ function isString(value) {
 
 /**
  * Generates an array containing a range of numbers.
- * 
+ *
  * @param {number} start - The starting number (inclusive).
  * @param {number} end - The ending number (exclusive).
  * @returns {number[]} An array containing numbers from `start` to `end - 1`.
@@ -29,7 +29,7 @@ function range(start, end) {
 
 /**
  * Checks if a value is either not a string or has zero length.
- * 
+ *
  * @param {*} value - The value to check.
  * @returns {boolean} `true` if the value is not a string or has zero length, otherwise `false`.
  */
@@ -40,13 +40,13 @@ function invalidTypeOrLength(value) {
 // Inspired by Node.js: https://github.com/nodejs/node/blob/master/lib/_http_outgoing.js
 /**
  * An API for validating HTTP header names and values.
- * 
+ *
  * @namespace httpHeaderValidationAPI
  */
 var httpHeaderValidationAPI = {
   /**
    * Validates the HTTP header name.
-   * 
+   *
    * @param {string} headerName - The name of the HTTP header to validate.
    * @returns {boolean} `true` if the header name is valid, otherwise `false`.
    */
@@ -71,7 +71,7 @@ var httpHeaderValidationAPI = {
 
   /**
    * Validates the HTTP header value.
-   * 
+   *
    * @param {string} headerValue - The value of the HTTP header to validate.
    * @returns {boolean} `true` if the header value is valid, otherwise `false`.
    */
@@ -89,7 +89,7 @@ var httpHeaderValidationAPI = {
 
   /**
    * Validates the HTTP header name and value pair.
-   * 
+   *
    * @param {string} name - The name of the HTTP header to validate.
    * @param {string} value - The value of the HTTP header to validate.
    * @returns {boolean} `true` if both the header name and value are valid, otherwise `false`.

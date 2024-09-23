@@ -62,12 +62,13 @@ headerUtils.validateHeader('Front-End-[]', 'backspace\bValue'); // false
 
 ## Testing and contributing
 
-Every suggestions for improvements and bugfixes are welcomed in the Issues section.
+Suggestions for improvements and bugfixes are welcome in the Issues section.
 
 For testing the module you need npm installed:
 ```
 $ npm install
 $ npm test
+$ npm run lint
 ```
 
 Build TypeScript declaration run next command:

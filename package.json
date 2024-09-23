@@ -1,21 +1,22 @@
 {
   "name": "http-headers-validation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utility for validating HTTP header names and values",
   "main": "index.js",
   "dependencies": {
     "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "eslint": "2.9.0",
-    "mocha": "2.4.5",
-    "should": "8.3.1"
+    "eslint": "9.11.0",
+    "globals": "^15.9.0",
+    "mocha": "10.7.3",
+    "should": "13.2.3"
   },
   "scripts": {
-    "clean:types": "rm -rf ./*.d.ts && rm -rf ./*.d.ts.map",
+    "clean:types": "rm -rf ./*.d.ts && rm -rf ./*.d.ts.map && rm -rf ./*.d.mts && rm -rf ./*.d.mts.map",
     "build:types": "npx tsc -d --declarationDir ./ --declarationMap --emitDeclarationOnly",
-    "lint": "./node_modules/.bin/eslint index.js",
-    "test": "./node_modules/.bin/mocha test.js --check-leaks"
+    "lint": "node ./node_modules/eslint/bin/eslint.js index.js",
+    "test": "node ./node_modules/mocha/bin/mocha.js test.js --check-leaks"
   },
   "repository": {
     "type": "git",
