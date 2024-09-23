@@ -3,13 +3,17 @@
   "version": "0.0.1",
   "description": "Utility for validating HTTP header names and values",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "typescript": "^5.6.2"
+  },
   "devDependencies": {
-    "mocha": "2.4.5",
     "eslint": "2.9.0",
+    "mocha": "2.4.5",
     "should": "8.3.1"
   },
   "scripts": {
+    "clean:types": "rm -rf ./*.d.ts && rm -rf ./*.d.ts.map",
+    "build:types": "npx tsc -d --declarationDir ./ --declarationMap --emitDeclarationOnly",
     "lint": "./node_modules/.bin/eslint index.js",
     "test": "./node_modules/.bin/mocha test.js --check-leaks"
   },
